@@ -2,6 +2,7 @@
 
 > 이 문서는 본인인증 서비스 이해를 돕고 시스템 연동에 도움이 되고자 작성되었으며, \n 각 프로세스 및 Parameter 등 본인 인증 시스템 연동에 필요한 내용에 대해 설명한다
 
+
 #### A. 사전 준비사항
 
   (구현 후 작성)
@@ -20,13 +21,16 @@ a. Linux / Sun OS / Windows 계열/ FreeBSD / AIX 등 모든 OS 지원
 
 b. PHP / JSP / ASP / .NET 등
 
+
 ## 2\. 본인인증 서비스
 
 > 다날의 본인인증 서비스의 구성 및 흐름 등에 관하여 설명한다.
 
+
 #### A. 서비스 다이어그램
 
 ![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FeTlrel%2FbtqKXMcl0g9%2FM2n5N4E3w40HdgFbyBhYD0%2Fimg.png)
+
 
 #### B. 데이터베이스
 
@@ -37,6 +41,7 @@ b. PHP / JSP / ASP / .NET 등
 <table style="border-collapse: collapse; width: 44.6512%; height: 156px;" border="1" data-ke-style="style13"><tbody><tr style="height: 20px;"><td style="width: 99.9999%; height: 20px;" colspan="3"><b>Admin</b></td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;"><b>PK</b></td><td style="width: 33.3333%; height: 20px;">idx</td><td style="width: 33.3333%; height: 20px;">int(10), Auto_Increment</td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;">admin_ID</td><td style="width: 33.3333%; height: 20px;">varchar(20)</td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;">PSWD</td><td style="width: 33.3333%; height: 20px;">varchar(20)</td></tr></tbody></table>
 
 <table style="border-collapse: collapse; width: 45.3488%; height: 283px;" border="1" data-ke-style="style13"><tbody><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;" colspan="3"><b>Calculate Info</b></td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;"><b>PK</b></td><td style="width: 33.3333%; height: 20px;">idx</td><td style="width: 33.3333%; height: 20px;">int(10), Auto_Increment</td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;">admin_ID</td><td style="width: 33.3333%; height: 20px;">varchar(20)</td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;"><span>a₁<br></span></td><td style="width: 33.3333%; height: 20px;">int(5)</td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">a₂</span></td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">int(5)</span></td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">b₁</span></td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">int(5)</span></td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">b₂</span></td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">int(5)</span></td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">timestamp</span></td><td style="width: 33.3333%; height: 20px;">datetime</td></tr></tbody></table>
+
 
 #### C. Parameter
 
