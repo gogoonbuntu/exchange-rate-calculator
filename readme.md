@@ -1,4 +1,4 @@
-1\. 개요
+## 1\. 개요
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
@@ -6,11 +6,11 @@
 
 각 프로세스 및 Parameter 등 본인 인증 시스템 연동에 필요한 내용에 대해 설명한다
 
-A. 사전 준비사항
+#### A. 사전 준비사항
 
   (구현 후 작성)
 
-B. 서비스 연동 순서
+#### B. 서비스 연동 순서
 
   a. 각 서버 환경에 맞는 웹 통신 환경 설정
 
@@ -18,23 +18,23 @@ B. 서비스 연동 순서
 
   c. 본인인증 완료 후 CP작업 시행 (서비스 제공, TID 저장, DB 관련작업 등)
 
-C. System Requirement
+#### C. System Requirement
 
 a. Linux / Sun OS / Windows 계열/ FreeBSD / AIX 등 모든 OS 지원
 
 b. PHP / JSP / ASP / .NET 등
 
-2\. 본인인증 서비스
+## 2\. 본인인증 서비스
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 다날의 본인인증 서비스의 구성 및 흐름 등에 관하여 설명한다.
 
-A. 서비스 다이어그램
+#### A. 서비스 다이어그램
 
-![](https://blog.kakaocdn.net/dn/yKS0b/btqKZohDLzh/dSZnJ5s0sd3ZzkR08KZzhk/img.png)
+[##_Image|kage@bfHqMB/btqKXiJkLF9/3eCkG7FcuDqvQAHDAnKUyK/img.png|alignCenter|data-filename="Group 4 (1).png" data-origin-width="1392" data-origin-height="709" data-ke-mobilestyle="widthContent"|||_##]
 
-B. 데이터베이스
+#### B. 데이터베이스
 
 <table style="border-collapse: collapse; width: 44.1813%; height: 317px;" border="1" data-ke-style="style13"><tbody><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;" colspan="3">Log</td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">PK</td><td style="width: 33.3333%; height: 20px;">idx</td><td style="width: 33.3333%; height: 20px;">int(10), Auto_Increment</td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;">ID</td><td style="width: 33.3333%; height: 20px;">varchar(20)</td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;"><span>a₁<br></span></td><td style="width: 33.3333%; height: 20px;">int(5)</td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">a₂<span></span></span></td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">int(5)</span></td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">b₁<span></span></span></td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">int(5)</span></td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">b₂</span></td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">int(5)</span></td></tr><tr><td style="width: 33.3333%;">&nbsp;</td><td style="width: 33.3333%;"><span style="color: #333333;">timestamp</span></td><td style="width: 33.3333%;">datetime</td></tr></tbody></table>
 
@@ -44,7 +44,7 @@ B. 데이터베이스
 
 <table style="border-collapse: collapse; width: 45.3488%; height: 283px;" border="1" data-ke-style="style13"><tbody><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;" colspan="3">Calculate Info</td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">PK</td><td style="width: 33.3333%; height: 20px;">idx</td><td style="width: 33.3333%; height: 20px;">int(10), Auto_Increment</td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;">admin_ID</td><td style="width: 33.3333%; height: 20px;">varchar(20)</td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;"><span>a₁<br></span></td><td style="width: 33.3333%; height: 20px;">int(5)</td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">a₂</span></td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">int(5)</span></td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">b₁</span></td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">int(5)</span></td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">b₂</span></td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">int(5)</span></td></tr><tr style="height: 20px;"><td style="width: 33.3333%; height: 20px;">&nbsp;</td><td style="width: 33.3333%; height: 20px;"><span style="color: #333333;">timestamp</span></td><td style="width: 33.3333%; height: 20px;">datetime</td></tr></tbody></table>
 
-C. Parameter
+#### C. Parameter
 
   a. INPUT
 
