@@ -32,7 +32,7 @@ b. PHP / JSP / ASP / .NET 등
 
 #### A. 서비스 다이어그램
 
-[##_Image|kage@eTlrel/btqKXMcl0g9/M2n5N4E3w40HdgFbyBhYD0/img.png|alignCenter|data-filename="Group 4.png" data-origin-width="1345" data-origin-height="708" data-ke-mobilestyle="widthContent"|||_##]
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FeTlrel%2FbtqKXMcl0g9%2FM2n5N4E3w40HdgFbyBhYD0%2Fimg.png)
 
 #### B. 데이터베이스
 
